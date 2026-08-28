@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_app"
     android:orientation="vertical"
     android:padding="20dp">
 
+    <!-- Barra superior: los íconos ahora son ImageButton reales, con
+         ripple circular (selectableItemBackgroundBorderless) y su id
+         para engancharles el onClick. Antes eran ImageView sueltos que
+         no respondían al tacto. -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:contentDescription="Regresar"
+        <ImageButton
+            android:id="@+id/btnAtras"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_regresar"
+            android:padding="8dp"
             android:src="@android:drawable/ic_menu_revert" />
 
         <View
@@ -23,17 +31,23 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="16dp"
-            android:contentDescription="Buscar en el grupo"
+        <ImageButton
+            android:id="@+id/btnBuscarGrupo"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_buscar_en_grupo"
+            android:padding="8dp"
             android:src="@android:drawable/ic_menu_search" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="Más opciones"
+        <ImageButton
+            android:id="@+id/btnMasOpciones"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_mas_opciones"
+            android:padding="8dp"
             android:src="@android:drawable/ic_menu_more" />
     </LinearLayout>
 
@@ -44,13 +58,18 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <TextView
+        <!-- Ícono de grupo vectorial en vez del emoji 👥 (los emojis se ven
+             distinto según el teléfono/fuente del sistema; un vector se ve
+             igual en todos los dispositivos). -->
+        <ImageView
+            android:id="@+id/ivIconoGrupo"
             android:layout_width="46dp"
             android:layout_height="46dp"
             android:background="@drawable/bg_group_icon"
-            android:gravity="center"
-            android:text="👥"
-            android:textSize="18sp" />
+            android:contentDescription="@string/cd_icono_grupo"
+            android:padding="11dp"
+            android:src="@drawable/ic_group"
+            app:tint="@color/purple_primary" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -59,22 +78,28 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvNombreGrupo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre de grupo"
+                android:text="@string/placeholder_nombre_grupo"
                 android:textColor="@color/text_primary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvMiembrosActivos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0 miembros activos"
+                android:text="@string/placeholder_miembros_activos"
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
 
+    <!-- Botones de acción: antes eran TextView con emoji + fondo dibujado a mano.
+         Ahora son MaterialButton reales: incluyen ripple, estado "pressed" y
+         accesibilidad (role=button) sin necesitar código extra, y el ícono se
+         define con app:icon en vez de escribir el emoji dentro del texto. -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,28 +107,42 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLlamadaGrupal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/bg_pill_button_primary"
-            android:gravity="center"
-            android:paddingVertical="12dp"
-            android:text="📞  Llamada grupal"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingVertical="10dp"
+            android:text="@string/btn_llamada_grupal"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@color/purple_primary"
+            app:cornerRadius="24dp"
+            app:icon="@android:drawable/ic_menu_call"
+            app:iconGravity="textStart"
+            app:iconTint="@color/white" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMensajeGrupal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_pill_button_secondary"
-            android:gravity="center"
-            android:paddingVertical="12dp"
-            android:text="💬  Mensaje grupal"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingVertical="10dp"
+            android:text="@string/btn_mensaje_grupal"
+            android:textAllCaps="false"
             android:textColor="@color/purple_primary"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@color/purple_light"
+            app:cornerRadius="24dp"
+            app:icon="@android:drawable/ic_dialog_email"
+            app:iconGravity="textStart"
+            app:iconTint="@color/purple_primary" />
     </LinearLayout>
 
     <View
@@ -116,7 +155,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Miembros del grupo"
+        android:text="@string/label_miembros_del_grupo"
         android:textColor="@color/purple_primary"
         android:textSize="13sp"
         android:textStyle="bold" />
@@ -127,15 +166,23 @@
         android:layout_weight="1"
         android:layout_marginTop="8dp">
 
+        <!-- Id-agregado para poblar la lista de miembros dinámicamente. -->
         <LinearLayout
+            android:id="@+id/containerMiembros"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Fila de miembro de ejemplo (placeholder de diseño) -->
+            <!-- Fila de-miembro de ejemplo. Los íconos de llamar/mensaje ahora
+                 son ImageButton (antes ImageView) para que respondan al toque
+                 con ripple propio, independiente del resto de la fila. -->
             <LinearLayout
+                android:id="@+id/rowMiembroEjemplo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingVertical="10dp">
@@ -146,7 +193,7 @@
                     android:background="@drawable/bg_avatar_circle"
                     android:backgroundTint="@color/avatar_peach_bg"
                     android:gravity="center"
-                    android:text="NN"
+                    android:text="@string/placeholder_iniciales"
                     android:textColor="@color/avatar_peach_text"
                     android:textSize="13sp"
                     android:textStyle="bold" />
@@ -161,7 +208,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nombre de ejemplo"
+                        android:text="@string/placeholder_nombre_persona"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -169,22 +216,28 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rol o descripción"
+                        android:text="@string/placeholder_rol"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:contentDescription="Llamar"
+                <ImageButton
+                    android:id="@+id/btnLlamarMiembro"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/cd_llamar"
+                    android:padding="7dp"
                     android:src="@android:drawable/ic_menu_call" />
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="14dp"
-                    android:contentDescription="Mensaje"
+                <ImageButton
+                    android:id="@+id/btnMensajeMiembro"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="6dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/cd_mensaje"
+                    android:padding="7dp"
                     android:src="@android:drawable/ic_dialog_email" />
             </LinearLayout>
 
