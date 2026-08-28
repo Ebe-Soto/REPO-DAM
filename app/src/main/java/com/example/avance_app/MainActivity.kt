@@ -193,14 +193,29 @@ class MainActivity : AppCompatActivity() {
 
             // Icono de estrella para marcar favorito
             val estrella = android.widget.ImageView(this)
-            estrella.setImageResource(android.R.drawable.btn_star_big_off)
             val tamanoEstrella = (22 * resources.displayMetrics.density).toInt()
             estrella.layoutParams = LinearLayout.LayoutParams(tamanoEstrella, tamanoEstrella)
+
+            actualizarEstrella(estrella, contact.favorito)
 
             // Al hacer click en el icono, el objeto enntra en la lista de favoritos
             estrella.setOnClickListener {
                 ContactManager.marcarFav(contact.id)
-                mostrarContactos(ContactManager.showContacts())
+                val newState = ContactManager.showContacts().find { it.id == contact.id }?.favorito ?: false
+                actualizarEstrella(estrella, newState)
+            }
+
+            estrella.setOnHoverListener { _, event ->
+                when (event.action) {
+                    android.view.MotionEvent.ACTION_HOVER_ENTER -> {
+                        estrella.setColorFilter(android.graphics.Color.parseColor("#FFC107"))
+                    }
+                    android.view.MotionEvent.ACTION_HOVER_EXIT -> {
+                        val actualState = ContactManager.showContacts().find { it.id == contact.id }?.favorito ?: false
+                        actualizarEstrella(estrella, actualState)
+                    }
+                }
+                false
             }
 
             fila.addView(avatar)
@@ -208,6 +223,16 @@ class MainActivity : AppCompatActivity() {
             fila.addView(estrella)
 
             box.addView(fila) // Por cada objeto, se añade el recuadro de diseño correspondiente
+        }
+    }
+
+    private fun actualizarEstrella(estrella: android.widget.ImageView, esFavorito: Boolean) {
+        if (esFavorito) {
+            estrella.setImageResource(android.R.drawable.btn_star_big_on)
+            estrella.setColorFilter(android.graphics.Color.parseColor("#FFC107"))
+        } else {
+            estrella.setImageResource(android.R.drawable.btn_star_big_off)
+            estrella.clearColorFilter()
         }
     }
 
