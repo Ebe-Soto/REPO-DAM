@@ -30,7 +30,7 @@ object ContactManager: Filtrable{
     fun marcarFav(id: Int) {
         val contacto = contacts.find { it.id == id }
         if (contacto != null) {
-            contacto.favorito = true
+            contacto.favorito = !contacto.favorito
         }
     }
 
