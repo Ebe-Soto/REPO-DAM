@@ -1,134 +1,146 @@
 [
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "com.example.avance_app-debug-40:/layout_activity_contactos.xml.flat",
+        "source": "com.example.avance_app-main-42:/layout/activity_contactos.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\xml\\data_extraction_rules.xml"
+        "merged": "com.example.avance_app-debug-40:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.avance_app-main-42:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_card_contact.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_card_contact.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\layout_activity_llamada_grupal.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\layout\\activity_llamada_grupal.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_fab.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_fab.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.avance_app-debug-40:/layout_activity_detalle_grupo.xml.flat",
+        "source": "com.example.avance_app-main-42:/layout/activity_detalle_grupo.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_fab.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_fab.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_chip.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_chip.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_avatar_circle.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_avatar_circle.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_underline_tab.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_underline_tab.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_underline_tab.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_underline_tab.xml"
+        "merged": "com.example.avance_app-debug-40:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\layout_activity_grupos.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\layout\\activity_grupos.xml"
+        "merged": "com.example.avance_app-debug-40:/xml_backup_rules.xml.flat",
+        "source": "com.example.avance_app-main-42:/xml/backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\layout_activity_favoritos.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\layout\\activity_favoritos.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_icon_touch.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_icon_touch.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "com.example.avance_app-debug-40:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\layout_dialog_agregar_contacto.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\layout\\dialog_agregar_contacto.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.example.avance_app-debug-40:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\layout_activity_contactos.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\layout\\activity_contactos.xml"
+        "merged": "com.example.avance_app-debug-40:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.avance_app-debug-40:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_pill_button_secondary.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_pill_button_secondary.xml"
+    },
+    {
+        "merged": "com.example.avance_app-debug-40:/layout_activity_grupos.xml.flat",
+        "source": "com.example.avance_app-main-42:/layout/activity_grupos.xml"
     },
     {
         "merged": "com.example.avance_app-debug-40:/layout_activity_favoritos.xml.flat",
         "source": "com.example.avance_app-main-42:/layout/activity_favoritos.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_group_icon.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_group_icon.xml"
+        "merged": "com.example.avance_app-debug-40:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_pill_button_secondary.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_pill_button_secondary.xml"
+        "merged": "com.example.avance_app-debug-40:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_search_pill.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_search_pill.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.avance_app-debug-40:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "com.example.avance_app-debug-40:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_search_pill.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_search_pill.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_avatar_circle.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_avatar_circle.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_chip.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_chip.xml"
+        "merged": "com.example.avance_app-debug-40:/layout_activity_llamada_grupal.xml.flat",
+        "source": "com.example.avance_app-main-42:/layout/activity_llamada_grupal.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\layout_activity_detalle_contacto.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\layout\\activity_detalle_contacto.xml"
+        "merged": "com.example.avance_app-debug-40:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\ic_launcher_background.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_group_icon.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_group_icon.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "com.example.avance_app-debug-40:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\xml\\backup_rules.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_pill_button_primary.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_pill_button_primary.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "com.example.avance_app-debug-40:/drawable_ic_group.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/ic_group.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_action_button.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_action_button.xml"
+        "merged": "com.example.avance_app-debug-40:/layout_dialog_agregar_contacto.xml.flat",
+        "source": "com.example.avance_app-main-42:/layout/dialog_agregar_contacto.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\layout_activity_detalle_grupo.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\layout\\activity_detalle_grupo.xml"
+        "merged": "com.example.avance_app-debug-40:/layout_activity_detalle_contacto.xml.flat",
+        "source": "com.example.avance_app-main-42:/layout/activity_detalle_contacto.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_pill_button_primary.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_pill_button_primary.xml"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_tab_selected.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_tab_selected.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "com.example.avance_app-debug-40:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.example.avance_app-debug-40:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.avance_app-main-42:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "com.example.avance_app-debug-40:/drawable_bg_action_button.xml.flat",
+        "source": "com.example.avance_app-main-42:/drawable/bg_action_button.xml"
     }
 ]

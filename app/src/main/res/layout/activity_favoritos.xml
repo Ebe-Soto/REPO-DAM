@@ -5,14 +5,15 @@
     android:layout_height="match_parent"
     android:background="@color/bg_app"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:paddingHorizontal="20dp"
+    android:paddingTop="24dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Favoritos"
         android:textColor="@color/text_primary"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
@@ -21,38 +22,38 @@
         android:layout_marginTop="2dp"
         android:text="Contactos destacados"
         android:textColor="@color/text_secondary"
-        android:textSize="13sp" />
+        android:textSize="14sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/bg_search_pill"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="18dp">
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:contentDescription="Buscar"
             android:src="@android:drawable/ic_menu_search"
-            app:tint="@color/text_secondary" />
+            app:tint="@color/purple_primary" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
             android:text="Buscar en favoritos..."
             android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="18dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -62,29 +63,28 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:paddingVertical="10dp"
             android:text="Todos"
-            android:textColor="@color/text_secondary" />
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/bg_tab_selected"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingVertical="10dp">
 
             <TextView
                 android:id="@+id/tvFavoritos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
                 android:text="Favoritos"
                 android:textColor="@color/purple_primary"
+                android:textSize="14sp"
                 android:textStyle="bold" />
-
-            <View
-                android:layout_width="46dp"
-                android:layout_height="2dp"
-                android:background="@drawable/bg_underline_tab" />
         </LinearLayout>
 
         <TextView
@@ -93,20 +93,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:paddingVertical="10dp"
             android:text="Grupos"
-            android:textColor="@color/text_secondary" />
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/divider" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,70 +114,71 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:text="Acceso rápido"
                 android:textColor="@color/purple_primary"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <HorizontalScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:clipToPadding="false"
+                android:scrollbars="none">
 
-                <TextView
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:background="@drawable/bg_avatar_circle"
-                    android:backgroundTint="@color/avatar_purple_bg"
-                    android:gravity="center"
-                    android:text="AA"
-                    android:textColor="@color/avatar_purple_text"
-                    android:textStyle="bold" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Ejemplo"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="11sp" />
-            </LinearLayout>
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="18dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="58dp"
+                            android:layout_height="58dp"
+                            android:background="@drawable/bg_avatar_circle"
+                            android:backgroundTint="@color/avatar_purple_bg"
+                            android:elevation="1dp"
+                            android:gravity="center"
+                            android:text="AA"
+                            android:textColor="@color/avatar_purple_text"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Ejemplo"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="10dp"
                 android:text="Todos los favoritos"
                 android:textColor="@color/purple_primary"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textStyle="bold" />
 
-            <!-- Fila de ejemplo (placeholder de diseño) -->
+            <!-- Contenedor vacío: MainActivity.kt agrega aquí una fila por cada favorito -->
             <LinearLayout
                 android:id="@+id/boxFavoritos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingVertical="10dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"/>
-
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:contentDescription="Favorito"
-                    android:src="@android:drawable/btn_star_big_on"
-                    app:tint="@color/star_gold" />
-            </LinearLayout>
+                android:orientation="vertical" />
 
         </LinearLayout>
     </ScrollView>

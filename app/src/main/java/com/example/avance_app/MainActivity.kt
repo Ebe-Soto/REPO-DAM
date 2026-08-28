@@ -152,13 +152,18 @@ class MainActivity : AppCompatActivity() {
             val fila = LinearLayout(this)
             fila.orientation = LinearLayout.HORIZONTAL
             fila.gravity = android.view.Gravity.CENTER_VERTICAL
-            fila.layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
+
             val paddingVertical = (10 * resources.displayMetrics.density).toInt()
             val paddingHorizontal = (16 * resources.displayMetrics.density).toInt()
             fila.setPadding(paddingHorizontal, paddingVertical,paddingHorizontal, paddingVertical)
+            fila.setBackgroundResource(R.drawable.bg_card_contact)
+            val paramsFila = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            paramsFila.bottomMargin = (8 * resources.displayMetrics.density).toInt()
+            fila.layoutParams = paramsFila
+            fila.minimumHeight = (64 * resources.displayMetrics.density).toInt()
 
             val avatar = TextView(this)
             avatar.text = contact.name.take(2).uppercase()
@@ -219,13 +224,18 @@ class MainActivity : AppCompatActivity() {
             val fila = LinearLayout(this)
             fila.orientation = LinearLayout.HORIZONTAL
             fila.gravity = android.view.Gravity.CENTER_VERTICAL
-            fila.layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
+
             val paddingVertical = (10 * resources.displayMetrics.density).toInt()
             val paddingHorizontal = (16 * resources.displayMetrics.density).toInt()
             fila.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, paddingVertical)
+            fila.setBackgroundResource(R.drawable.bg_card_contact)
+            val paramsFila = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            paramsFila.bottomMargin = (8 * resources.displayMetrics.density).toInt()
+            fila.layoutParams = paramsFila
+            fila.minimumHeight = (64 * resources.displayMetrics.density).toInt()
 
             val avatar = TextView(this)
             avatar.text = contact.name.take(2).uppercase()

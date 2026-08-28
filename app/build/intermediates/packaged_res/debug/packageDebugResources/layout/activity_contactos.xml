@@ -9,14 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingHorizontal="20dp"
+        android:paddingTop="24dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contactos"
             android:textColor="@color/text_primary"
-            android:textSize="28sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
@@ -25,47 +26,47 @@
             android:layout_marginTop="2dp"
             android:text="128 contactos"
             android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
+            android:textSize="14sp" />
 
-        <!-- Buscador (solo visual) -->
+        <!-- Buscador -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="18dp"
             android:background="@drawable/bg_search_pill"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="16dp">
+            android:paddingHorizontal="18dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:contentDescription="Buscar"
                 android:src="@android:drawable/ic_menu_search"
-                app:tint="@color/text_secondary" />
+                app:tint="@color/purple_primary" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:text="Buscar contactos..."
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+                android:textSize="15sp" />
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:contentDescription="Búsqueda por voz"
                 android:src="@android:drawable/ic_btn_speak_now"
                 app:tint="@color/text_secondary" />
         </LinearLayout>
 
-        <!-- Tabs -->
+        <!-- Tabs tipo segmented control -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="18dp"
             android:orientation="horizontal"
             android:weightSum="3">
 
@@ -73,22 +74,19 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/bg_tab_selected"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingVertical="10dp">
 
                 <TextView
                     android:id="@+id/tvTodos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="8dp"
                     android:text="Todos"
                     android:textColor="@color/purple_primary"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
-
-                <View
-                    android:layout_width="32dp"
-                    android:layout_height="2dp"
-                    android:background="@drawable/bg_underline_tab" />
             </LinearLayout>
 
             <TextView
@@ -97,8 +95,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:paddingVertical="10dp"
                 android:text="Favoritos"
-                android:textColor="@color/text_secondary" />
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvGrupos"
@@ -106,21 +106,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:paddingVertical="10dp"
                 android:text="Grupos"
-                android:textColor="@color/text_secondary" />
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/divider" />
-
-        <!-- Lista (solo visual, con placeholder de una fila de ejemplo) -->
+        <!-- Lista -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="90dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -130,47 +128,39 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="8dp"
                     android:text="A"
                     android:textColor="@color/purple_primary"
-                    android:textSize="12sp"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
 
+                <!-- Contenedor vacío: MainActivity.kt agrega aquí una fila por cada contacto -->
                 <LinearLayout
                     android:id="@+id/boxContactos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingVertical="10dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"/>
-
-                </LinearLayout>
+                    android:orientation="vertical" />
 
             </LinearLayout>
         </ScrollView>
 
     </LinearLayout>
 
-    <!-- Botón agregar contacto (solo diseño, sin acción) -->
+    <!-- Botón agregar contacto (FAB) -->
     <TextView
         android:id="@+id/btnAgregarContacto"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
+        android:layout_margin="24dp"
         android:background="@drawable/bg_fab"
         android:contentDescription="Agregar contacto"
+        android:elevation="6dp"
         android:gravity="center"
         android:text="+"
-        android:textColor="@color/purple_primary"
-        android:textSize="24sp"
+        android:textColor="@color/text_on_primary"
+        android:textSize="28sp"
         android:textStyle="bold" />
 
 </FrameLayout>
