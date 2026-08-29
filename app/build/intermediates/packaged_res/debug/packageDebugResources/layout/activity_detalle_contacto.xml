@@ -18,6 +18,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/btnVolverAContacto"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Regresar"
@@ -29,6 +30,7 @@
                 android:layout_weight="1" />
 
             <ImageView
+                android:id="@+id/btnEditarContacto"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginEnd="16dp"
@@ -43,6 +45,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tvCuadroContacto"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center_horizontal"
@@ -56,6 +59,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvNombreDC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -64,14 +68,6 @@
             android:textColor="@color/text_primary"
             android:textSize="20sp"
             android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Descripción / rol"
-            android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -194,12 +190,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="NÚMEROS DE TELÉFONO"
+            android:text="NÚMERO DE TELÉFONO"
             android:textColor="@color/purple_primary"
             android:textSize="11sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvTelefonoDC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -224,6 +221,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvEmailDC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -264,6 +262,7 @@
             android:background="@color/divider" />
 
         <LinearLayout
+            android:id="@+id/filaFavoritoDC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -272,12 +271,14 @@
             android:paddingVertical="10dp">
 
             <ImageView
+                android:id="@+id/iconoFavoritoDC"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:contentDescription="Agregar a favoritos"
                 android:src="@android:drawable/btn_star_big_off" />
 
             <TextView
+                android:id="@+id/tvFavoritoDC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
@@ -353,6 +354,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/tvFilaDEL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"

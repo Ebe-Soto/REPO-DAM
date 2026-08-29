@@ -1,9 +1,12 @@
 package com.example.avance_app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -22,8 +25,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_contactos)
 
         VistaTodos()
-        VistaFavoritos()
-        VistaGrupos()
     }
 
     //Configuraciones de Pantallas
@@ -33,8 +34,17 @@ class MainActivity : AppCompatActivity() {
         tvFavoritos = findViewById(R.id.tvFavoritos)
         tvGrupos = findViewById(R.id.tvGrupos)
         btnAgregarContacto = findViewById<Button>(R.id.btnAgregarContacto)
+        val etBuscarContacto = findViewById<EditText>(R.id.etBuscarContacto)
+        val tvTotalContactos = findViewById<TextView>(R.id.tvTotalContactos)
 
         mostrarContactos(ContactManager.showContacts())
+        actualizarContador(tvTotalContactos)
+
+        // Búsqueda de Contacto utilizando una funcion de busqueda en tiempo real
+        etBuscarContacto.doAfterTextChanged { texto ->
+            val resultados = ContactManager.buscarContacto(texto.toString())
+            mostrarContactos(resultados)
+        }
 
         tvTodos.setOnClickListener {
             setContentView(R.layout.activity_contactos)
@@ -103,6 +113,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun actualizarContador(tv: TextView) {
+        val total = ContactManager.totalContactos()
+        tv.text = if (total == 1) "$total contacto" else "$total contactos"
+    }
+
     private fun CrearContacto() {
         val etNombre = findViewById<EditText>(R.id.etNombre)
         val etTelefono = findViewById<EditText>(R.id.etTelefono)
@@ -130,6 +145,9 @@ class MainActivity : AppCompatActivity() {
                 etTelefono.text.clear()
                 etEmail.text.clear()
 
+                setContentView(R.layout.activity_contactos)
+                VistaTodos()
+
             } catch (e: IllegalArgumentException) {
                 Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
             }
@@ -147,6 +165,7 @@ class MainActivity : AppCompatActivity() {
     // Funcion para mostrar los contactos en filas con un diseño acorde a la interfaz
     private fun mostrarContactos(lista: List<Contact>) {
         val box = findViewById<LinearLayout>(R.id.boxContactos)
+        box.removeAllViews()
 
         for (contact in lista) {
             val fila = LinearLayout(this)
@@ -193,19 +212,28 @@ class MainActivity : AppCompatActivity() {
 
             // Icono de estrella para marcar favorito
             val estrella = android.widget.ImageView(this)
-            estrella.setImageResource(android.R.drawable.btn_star_big_off)
             val tamanoEstrella = (22 * resources.displayMetrics.density).toInt()
             estrella.layoutParams = LinearLayout.LayoutParams(tamanoEstrella, tamanoEstrella)
 
-            // Al hacer click en el icono, el objeto enntra en la lista de favoritos
+            // Estado inicial del ícono según el objeto (por si ya era favorito antes)
+            actualizarEstrella(estrella, contact.favorito)
+
+            // Al hacer click, el objeto entra/sale de favoritos (toggle)
             estrella.setOnClickListener {
                 ContactManager.marcarFav(contact.id)
-                mostrarContactos(ContactManager.showContacts())
+                val nuevoEstado = ContactManager.showContacts().find { it.id == contact.id }?.favorito ?: false
+                actualizarEstrella(estrella, nuevoEstado)
             }
 
             fila.addView(avatar)
             fila.addView(columna)
             fila.addView(estrella)
+
+            // Al hacer click en la fila del contacto, se revela el layout del contacto correspondiente
+            fila.setOnClickListener {
+                setContentView(R.layout.activity_detalle_contacto)
+                VistaDC(contact)
+            }
 
             box.addView(fila) // Por cada objeto, se añade el recuadro de diseño correspondiente
         }
@@ -214,6 +242,7 @@ class MainActivity : AppCompatActivity() {
     // Funcion para mostrar la lista de favoritos con el diseño correspondiente a la interfaz
     private fun mostrarFavoritos(lista: List<Contact>) {
         val boxF = findViewById<LinearLayout>(R.id.boxFavoritos)
+        boxF.removeAllViews()
 
         for (contact in lista) {
             val fila = LinearLayout(this)
@@ -257,17 +286,133 @@ class MainActivity : AppCompatActivity() {
 
             columna.addView(nombre)
             columna.addView(telefono)
-
-            val estrella = android.widget.ImageView(this)
-            estrella.setImageResource(android.R.drawable.btn_star_big_on)
-            estrella.setColorFilter(android.graphics.Color.parseColor("#FFC107"))
-            val tamanoEstrella = (22 * resources.displayMetrics.density).toInt()
-            estrella.layoutParams = LinearLayout.LayoutParams(tamanoEstrella, tamanoEstrella)
-
             fila.addView(avatar)
             fila.addView(columna)
+
+            // Al hacer click en la fila del contacto, se revela el layout del contacto correspondiente
+            fila.setOnClickListener {
+                setContentView(R.layout.activity_detalle_contacto)
+                VistaDC(contact)
+            }
 
             boxF.addView(fila) // Por cada objeto, se añade el recuadro de diseño correspondiente
         }
     }
+
+    private fun actualizarEstrella(estrella: android.widget.ImageView, esFavorito: Boolean) {
+        if (esFavorito) {
+            estrella.setImageResource(android.R.drawable.btn_star_big_on)
+            estrella.setColorFilter(android.graphics.Color.parseColor("#FFC107"))
+        } else {
+            estrella.setImageResource(android.R.drawable.btn_star_big_off)
+            estrella.clearColorFilter()
+        }
+    }
+
+    // Declaración de layout individual de cada contacto
+    private fun VistaDC(contact: Contact) {
+        val tvNombreDC = findViewById<TextView>(R.id.tvNombreDC)
+        val tvTelefonoDC = findViewById<TextView>(R.id.tvTelefonoDC)
+        val tvEmailDC = findViewById<TextView>(R.id.tvEmailDC)
+        val tvCDC = findViewById<TextView>(R.id.tvCuadroContacto)
+        val btnVolverAC = findViewById<android.widget.ImageView>(R.id.btnVolverAContacto)
+        val filaFavoritoDC = findViewById<LinearLayout>(R.id.filaFavoritoDC)
+        val iconoFavoritoDC = findViewById<android.widget.ImageView>(R.id.iconoFavoritoDC)
+        val tvFavoritoDC = findViewById<TextView>(R.id.tvFavoritoDC)
+        val filaEliminar = findViewById<LinearLayout>(R.id.tvFilaDEL)
+        val btnEditarContacto = findViewById<ImageView>(R.id.btnEditarContacto)
+
+        // Llenar datos del contacto según el seleccionado
+        tvNombreDC.text = contact.name
+        tvTelefonoDC.text = contact.number
+        tvEmailDC.text = contact.email
+        tvCDC.text = contact.name.take(2).uppercase()
+
+        // Estado inicial de favorito
+        actualizarFavDC(iconoFavoritoDC, tvFavoritoDC, contact.favorito)
+
+        // Toggle de favorito
+        filaFavoritoDC.setOnClickListener {
+            ContactManager.marcarFav(contact.id)
+            val nuevoEstado = ContactManager.showContacts().find { it.id == contact.id }?.favorito ?: false
+            actualizarFavDC(iconoFavoritoDC, tvFavoritoDC, nuevoEstado)
+        }
+        // Eliminar Contacto individualmente
+        filaEliminar.setOnClickListener {
+            androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Eliminar contacto")
+                .setMessage("¿Seguro que quieres eliminar a ${contact.name}? Esta acción no se puede deshacer.")
+                .setPositiveButton("Eliminar") { _, _ ->
+                    ContactManager.delContacto(contact.id)
+                    Toast.makeText(this, "Contacto eliminado", Toast.LENGTH_SHORT).show()
+                    setContentView(R.layout.activity_contactos)
+                    VistaTodos()
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
+        }
+
+        // Regresar a la lista
+        btnVolverAC.setOnClickListener {
+            setContentView(R.layout.activity_contactos)
+            VistaTodos()
+        }
+
+        btnEditarContacto.setOnClickListener {
+            setContentView(R.layout.dialog_editar_contacto)
+            EditarContacto(contact)
+        }
+    }
+
+    private fun EditarContacto(contact: Contact) {
+        val etNombre = findViewById<EditText>(R.id.etNombre)
+        val etTelefono = findViewById<EditText>(R.id.etTelefono)
+        val etEmail = findViewById<EditText>(R.id.etEmail)
+        val btnGuardar = findViewById<Button>(R.id.btnGuardar)
+        val btnCancelar = findViewById<Button>(R.id.btnCancelar)
+
+        // Precargar datos actuales
+        etNombre.setText(contact.name)
+        etTelefono.setText(contact.number)
+        etEmail.setText(contact.email)
+
+        btnGuardar.setOnClickListener {
+            val name = etNombre.text.toString()
+            val email = etEmail.text.toString()
+            val number = etTelefono.text.toString()
+
+            try {
+                if (name.isEmpty()) {
+                    throw IllegalArgumentException("El nombre no puede estar vacío")
+                }
+
+                ContactManager.editarContacto(contact.id, name, number, email)
+
+                Toast.makeText(this, "¡Contacto actualizado!", Toast.LENGTH_SHORT).show()
+
+                setContentView(R.layout.activity_detalle_contacto)
+                VistaDC(ContactManager.showContacts().find { it.id == contact.id }!!)
+
+            } catch (e: IllegalArgumentException) {
+                Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btnCancelar.setOnClickListener {
+            setContentView(R.layout.activity_detalle_contacto)
+            VistaDC(contact)
+        }
+    }
+
+    // Texto que cambia en el layout según corresponda
+    private fun actualizarFavDC(icono: android.widget.ImageView, texto: TextView, esFavorito: Boolean) {
+        if (esFavorito) {
+            icono.setImageResource(android.R.drawable.btn_star_big_on)
+            texto.text = "Quitar de favoritos"
+        } else {
+            icono.setImageResource(android.R.drawable.btn_star_big_off)
+            texto.text = "Agregar a favoritos"
+        }
+    }
 }
+

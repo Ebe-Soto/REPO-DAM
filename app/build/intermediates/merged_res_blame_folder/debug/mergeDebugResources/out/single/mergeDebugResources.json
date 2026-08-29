@@ -56,10 +56,6 @@
         "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\layout\\activity_contactos.xml"
     },
     {
-        "merged": "com.example.avance_app-debug-40:/layout_activity_favoritos.xml.flat",
-        "source": "com.example.avance_app-main-42:/layout/activity_favoritos.xml"
-    },
-    {
         "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_group_icon.xml.flat",
         "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_group_icon.xml"
     },
@@ -116,12 +112,24 @@
         "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\layout\\activity_detalle_grupo.xml"
     },
     {
+        "merged": "com.example.avance_app-debug-40:/layout_dialog_editar_contacto.xml.flat",
+        "source": "com.example.avance_app-main-42:/layout/dialog_editar_contacto.xml"
+    },
+    {
         "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_bg_pill_button_primary.xml.flat",
         "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\bg_pill_button_primary.xml"
     },
     {
         "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.avance_app-debug-40:/layout_activity_detalle_contacto.xml.flat",
+        "source": "com.example.avance_app-main-42:/layout/activity_detalle_contacto.xml"
+    },
+    {
+        "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\drawable_ic_group.xml.flat",
+        "source": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-main-42:\\drawable\\ic_group.xml"
     },
     {
         "merged": "C:\\Users\\ebay2\\.gradle\\daemon\\9.5.0\\com.example.avance_app-debug-40:\\mipmap-mdpi_ic_launcher_round.webp.flat",

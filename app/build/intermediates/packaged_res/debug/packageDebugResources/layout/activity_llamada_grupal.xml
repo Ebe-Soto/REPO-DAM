@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_app"
@@ -12,10 +13,13 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:contentDescription="Regresar"
+        <ImageButton
+            android:id="@+id/btnAtras"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_regresar"
+            android:padding="7dp"
             android:src="@android:drawable/ic_menu_revert" />
 
         <TextView
@@ -23,34 +27,42 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Llamada grupal"
+            android:text="@string/titulo_llamada_grupal"
             android:textColor="@color/text_primary"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="Cerrar"
+        <ImageButton
+            android:id="@+id/btnCerrar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cd_cerrar"
+            android:padding="7dp"
             android:src="@android:drawable/ic_menu_close_clear_cancel" />
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tvDestinatario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Destinatario: Grupo"
+        android:text="@string/destinatario_grupo"
         android:textColor="@color/text_secondary"
         android:textSize="12sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Seleccionar participantes"
+        android:text="@string/label_seleccionar_participantes"
         android:textColor="@color/text_primary"
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <!-- Selector de voz/video: antes eran dos TextView sin-id ni interacción,
+         con emoji dentro del texto. Ahora son dos MaterialButton reales con-
+         id, para que el equipo de lógica pueda alternar cuál está "activo"
+         (por ejemplo cambiando su backgroundTint al tocarlos). -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,26 +71,43 @@
         android:orientation="horizontal"
         android:padding="4dp">
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLlamadaVoz"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/bg_pill_button_primary"
-            android:gravity="center"
-            android:paddingVertical="8dp"
-            android:text="📞  Llamada de voz"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingVertical="6dp"
+            android:text="@string/btn_llamada_voz"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            app:backgroundTint="@color/purple_primary"
+            app:cornerRadius="20dp"
+            app:icon="@android:drawable/ic_menu_call"
+            app:iconGravity="textStart"
+            app:iconSize="16dp"
+            app:iconTint="@color/white" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVideollamada"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:paddingVertical="8dp"
-            android:text="🎥  Videollamada"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingVertical="6dp"
+            android:text="@string/btn_videollamada"
+            android:textAllCaps="false"
             android:textColor="@color/text_secondary"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="20dp"
+            app:icon="@android:drawable/presence_video_online"
+            app:iconGravity="textStart"
+            app:iconSize="16dp"
+            app:iconTint="@color/text_secondary" />
     </LinearLayout>
 
     <ScrollView
@@ -87,15 +116,19 @@
         android:layout_weight="1"
         android:layout_marginTop="20dp">
 
+        <!-- Id-agregado para poblar la lista de participantes dinámicamente. -->
         <LinearLayout
+            android:id="@+id/containerParticipantes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="3">
 
-            <!-- Participante de ejemplo (placeholder de diseño) -->
+            <!-- Participante de ejemplo. El avatar ahora es clickable/focusable
+                 de verdad (antes era un TextView decorativo sin respuesta al
+                 toque), listo para alternar seleccionado de-seleccionado -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -103,12 +136,15 @@
                 android:paddingBottom="16dp">
 
                 <TextView
+                    android:id="@+id/avatarParticipanteEjemplo"
                     android:layout_width="56dp"
                     android:layout_height="56dp"
                     android:background="@drawable/bg_avatar_circle"
                     android:backgroundTint="@color/avatar_peach_bg"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center"
-                    android:text="NN"
+                    android:text="@string/placeholder_iniciales"
                     android:textColor="@color/avatar_peach_text"
                     android:textStyle="bold" />
 
@@ -116,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Nombre"
+                    android:text="@string/placeholder_nombre_corto"
                     android:textColor="@color/text_primary"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -124,33 +160,42 @@
         </LinearLayout>
     </ScrollView>
 
+    <!-- Botones inferiores: TextView -> MaterialButton real. -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelarLlamada"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/bg_pill_button_secondary"
-            android:gravity="center"
-            android:paddingVertical="14dp"
-            android:text="Cancelar"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingVertical="12dp"
+            android:text="@string/btn_cancelar"
+            android:textAllCaps="false"
             android:textColor="@color/purple_primary"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@color/purple_light"
+            app:cornerRadius="24dp" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnIniciarLlamada"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_pill_button_primary"
-            android:gravity="center"
-            android:paddingVertical="14dp"
-            android:text="Iniciar llamada"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingVertical="12dp"
+            android:text="@string/btn_iniciar_llamada"
+            android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:backgroundTint="@color/purple_primary"
+            app:cornerRadius="24dp" />
     </LinearLayout>
 
 </LinearLayout>
