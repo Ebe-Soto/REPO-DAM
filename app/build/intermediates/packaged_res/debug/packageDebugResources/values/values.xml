@@ -22,6 +22,38 @@
     <color name="text_secondary">#8A8A9A</color>
     <color name="white">#FFFFFF</color>
     <string name="app_name">AVANCE_APP</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_iniciar_llamada">Iniciar llamada</string>
+    <string name="btn_llamada_grupal">Llamada grupal</string>
+    <string name="btn_llamada_voz">Llamada de voz</string>
+    <string name="btn_mensaje_grupal">Mensaje grupal</string>
+    <string name="btn_videollamada">Videollamada</string>
+    <string name="cd_buscar">Buscar</string>
+    <string name="cd_buscar_en_grupo">Buscar en el grupo</string>
+    <string name="cd_cerrar">Cerrar</string>
+    <string name="cd_crear_grupo">Crear grupo</string>
+    <string name="cd_icono_grupo">Ícono de grupo</string>
+    <string name="cd_llamar">Llamar</string>
+    <string name="cd_mas_opciones">Más opciones</string>
+    <string name="cd_mensaje">Mensaje</string>
+    <string name="cd_regresar">Regresar</string>
+    <string name="cd_ver_grupo">Ver grupo</string>
+    <string name="destinatario_grupo">Destinatario: Grupo</string>
+    <string name="grupos">Grupos</string>
+    <string name="hint_buscar_grupos">Buscar grupos…</string>
+    <string name="label_miembros_del_grupo">Miembros del grupo</string>
+    <string name="label_seleccionar_participantes">Seleccionar participantes</string>
+    <string name="placeholder_iniciales">NN</string>
+    <string name="placeholder_miembros">0 miembros</string>
+    <string name="placeholder_miembros_activos">0 miembros activos</string>
+    <string name="placeholder_nombre_corto">Nombre</string>
+    <string name="placeholder_nombre_grupo">Nombre de grupo</string>
+    <string name="placeholder_nombre_persona">Nombre de ejemplo</string>
+    <string name="placeholder_rol">Rol o descripción</string>
+    <string name="subtitulo_grupos">Gestiona tus listas de contactos</string>
+    <string name="tab_favoritos">Favoritos</string>
+    <string name="tab_todos">Todos</string>
+    <string name="titulo_llamada_grupal">Llamada grupal</string>
     <style name="Base.Theme.AVANCE_APP" parent="Theme.Material3.DayNight.NoActionBar">
         
         

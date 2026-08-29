@@ -20,6 +20,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvTotalContactos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -27,7 +28,7 @@
             android:textColor="@color/text_secondary"
             android:textSize="13sp" />
 
-        <!-- Buscador (solo visual) -->
+        <!-- Buscador -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -44,14 +45,19 @@
                 android:src="@android:drawable/ic_menu_search"
                 app:tint="@color/text_secondary" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:text="Buscar contactos..."
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+            <EditText
+            android:id="@+id/etBuscarContacto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:hint="Buscar contacto"
+            android:textColor="@color/text_secondary"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="14sp"
+            android:background="@null"
+            android:inputType="textPersonName"
+            android:singleLine="true" />
 
             <ImageView
                 android:layout_width="20dp"
@@ -127,21 +133,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="A"
-                    android:textColor="@color/purple_primary"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
                 <LinearLayout
                     android:id="@+id/boxContactos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:paddingVertical="10dp">
 
                     <LinearLayout

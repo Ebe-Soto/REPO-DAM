@@ -30,7 +30,7 @@ object ContactManager: Filtrable{
     fun marcarFav(id: Int) {
         val contacto = contacts.find { it.id == id }
         if (contacto != null) {
-            contacto.favorito = true
+            contacto.favorito = !contacto.favorito
         }
     }
 
@@ -39,4 +39,21 @@ object ContactManager: Filtrable{
         return contacts.filter { it.favorito }
     }
 
+    fun buscarContacto(query: String): List<Contact> {
+        return contacts.filter { it.name.contains(query, ignoreCase = true) }
+    }
+
+    fun editarContacto(id: Int, name: String, number: String, email: String) {
+        val contacto = contacts.find { it.id == id }
+        if (contacto != null) {
+            contacto.name = name
+            contacto.number = number
+            contacto.email = email
+        }
+    }
+    fun delContacto(id: Int) {
+        contacts.removeIf { it.id == id }
+    }
+
+    fun totalContactos(): Int = contacts.size
 }

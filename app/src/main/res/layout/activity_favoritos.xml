@@ -113,40 +113,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Acceso rápido"
-                android:textColor="@color/purple_primary"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="52dp"
-                    android:layout_height="52dp"
-                    android:background="@drawable/bg_avatar_circle"
-                    android:backgroundTint="@color/avatar_purple_bg"
-                    android:gravity="center"
-                    android:text="AA"
-                    android:textColor="@color/avatar_purple_text"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="Ejemplo"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="11sp" />
-            </LinearLayout>
+                android:orientation="vertical"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -163,7 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:paddingVertical="10dp">
 
                 <LinearLayout
@@ -173,12 +145,6 @@
                     android:layout_weight="1"
                     android:orientation="vertical"/>
 
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:contentDescription="Favorito"
-                    android:src="@android:drawable/btn_star_big_on"
-                    app:tint="@color/star_gold" />
             </LinearLayout>
 
         </LinearLayout>
