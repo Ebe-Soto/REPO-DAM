@@ -53,7 +53,34 @@ object ContactManager: Filtrable{
     }
     fun delContacto(id: Int) {
         contacts.removeIf { it.id == id }
+        // Lo quitamos también de cualquier grupo al que pertenecía
+        groups.forEach { it.memberIds.remove(id) }
     }
 
     fun totalContactos(): Int = contacts.size
+
+    // ---- GRUPOS ----
+    private val groups = mutableListOf<Group>()
+
+    fun crearGrupo(nombre: String, miembros: List<Int> = emptyList()): Group {
+        val nuevoGrupo = Group(
+            id = java.util.UUID.randomUUID().toString(),
+            name = nombre,
+            memberIds = miembros.toMutableList()
+        )
+        groups.add(nuevoGrupo)
+        return nuevoGrupo
+    }
+
+    fun showGroups(): List<Group> = groups
+
+    fun obtenerGrupo(id: String): Group? = groups.find { it.id == id }
+
+    fun obtenerMiembrosDeGrupo(groupId: String): List<Contact> {
+        val grupo = obtenerGrupo(groupId) ?: return emptyList()
+        return contacts.filter { grupo.memberIds.contains(it.id) }
+    }
+
+    fun buscarGrupo(query: String): List<Group> =
+        groups.filter { it.name.contains(query, ignoreCase = true) }
 }

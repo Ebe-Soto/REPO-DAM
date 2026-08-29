@@ -38,10 +38,12 @@ int id btnAgregarContacto 0x0
 int id btnAtras 0x0
 int id btnBuscarGrupo 0x0
 int id btnCancelar 0x0
+int id btnCancelarGrupo 0x0
 int id btnCancelarLlamada 0x0
 int id btnCerrar 0x0
 int id btnEditarContacto 0x0
 int id btnGuardar 0x0
+int id btnGuardarGrupo 0x0
 int id btnIniciarLlamada 0x0
 int id btnLlamadaGrupal 0x0
 int id btnLlamadaVoz 0x0
@@ -52,6 +54,7 @@ int id btnMensajeMiembro 0x0
 int id btnVideollamada 0x0
 int id btnVolverAContacto 0x0
 int id cardGrupoEjemplo 0x0
+int id containerContactosCheck 0x0
 int id containerGrupos 0x0
 int id containerMiembros 0x0
 int id containerParticipantes 0x0
@@ -59,6 +62,7 @@ int id etBuscarContacto 0x0
 int id etBuscarGrupos 0x0
 int id etEmail 0x0
 int id etNombre 0x0
+int id etNombreGrupo 0x0
 int id etTelefono 0x0
 int id fabCrearGrupo 0x0
 int id filaFavoritoDC 0x0
@@ -87,6 +91,7 @@ int layout activity_favoritos 0x0
 int layout activity_grupos 0x0
 int layout activity_llamada_grupal 0x0
 int layout dialog_agregar_contacto 0x0
+int layout dialog_crear_grupo 0x0
 int layout dialog_editar_contacto 0x0
 int mipmap ic_launcher 0x0
 int mipmap ic_launcher_round 0x0

@@ -4,7 +4,17 @@
             "outputFile": "com.example.avance_app-mergeDebugResources-38:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ebay2\\.gradle\\caches\\9.5.0\\transforms\\b4d121346527272f3269fa837323be9a\\transformed\\material-1.14.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\andre\\.gradle\\caches\\9.5.0\\transforms\\fcda40b0c091655ae059c410058cf4a1\\transformed\\appcompat-1.8.0\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\andre\\.gradle\\caches\\9.5.0\\transforms\\b4d121346527272f3269fa837323be9a\\transformed\\material-1.14.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,12,18,24,30,33,36,39,42",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -20,16 +30,6 @@
                         "endLines": "4,5,6,7,13,19,25,31,34,37,40,43,46",
                         "endColumns": "84,98,86,100,10,10,10,10,10,10,10,10,10",
                         "endOffsets": "427,526,613,714,990,1280,1558,1850,2081,2279,2498,2706,2914"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ebay2\\.gradle\\caches\\9.5.0\\transforms\\fcda40b0c091655ae059c410058cf4a1\\transformed\\appcompat-1.8.0\\res\\values-v24\\values-v24.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,212",
-                        "endColumns": "156,134",
-                        "endOffsets": "207,342"
                     }
                 }
             ]
