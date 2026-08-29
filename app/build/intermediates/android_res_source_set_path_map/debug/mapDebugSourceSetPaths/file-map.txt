@@ -1,8 +1,8 @@
-com.example.avance_app-pngs-0 C:\Users\ebay2\AndroidStudioProjects\AVANCE_APP\app\build\generated\res\pngs\debug
-com.example.avance_app-updated_navigation_xml-1 C:\Users\ebay2\AndroidStudioProjects\AVANCE_APP\app\build\generated\updated_navigation_xml\debug
-com.example.avance_app-packageDebugResources-2 C:\Users\ebay2\AndroidStudioProjects\AVANCE_APP\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.avance_app-packageDebugResources-3 C:\Users\ebay2\AndroidStudioProjects\AVANCE_APP\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.avance_app-debug-4 C:\Users\ebay2\AndroidStudioProjects\AVANCE_APP\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.example.avance_app-debug-5 C:\Users\ebay2\AndroidStudioProjects\AVANCE_APP\app\src\debug\res
-com.example.avance_app-main-6 C:\Users\ebay2\AndroidStudioProjects\AVANCE_APP\app\src\main\res
-gradleHome-0 C:\Users\ebay2\.gradle
+com.example.avance_app-pngs-0 C:\Users\andre\AndroidStudioProjects\REPO-DAM\app\build\generated\res\pngs\debug
+com.example.avance_app-updated_navigation_xml-1 C:\Users\andre\AndroidStudioProjects\REPO-DAM\app\build\generated\updated_navigation_xml\debug
+com.example.avance_app-packageDebugResources-2 C:\Users\andre\AndroidStudioProjects\REPO-DAM\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.avance_app-packageDebugResources-3 C:\Users\andre\AndroidStudioProjects\REPO-DAM\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.avance_app-debug-4 C:\Users\andre\AndroidStudioProjects\REPO-DAM\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.avance_app-debug-5 C:\Users\andre\AndroidStudioProjects\REPO-DAM\app\src\debug\res
+com.example.avance_app-main-6 C:\Users\andre\AndroidStudioProjects\REPO-DAM\app\src\main\res
+gradleHome-0 C:\Users\andre\.gradle

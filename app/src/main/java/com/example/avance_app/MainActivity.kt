@@ -92,12 +92,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Pestaña Grupos
+    // Pestaña Grupos
     private fun VistaGrupos() {
         tvTodos = findViewById(R.id.tvTodos)
         tvFavoritos = findViewById(R.id.tvFavoritos)
         tvGrupos = findViewById(R.id.tvGrupos)
+        val fabCrearGrupo = findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fabCrearGrupo)
+        val etBuscarGrupos = findViewById<EditText>(R.id.etBuscarGrupos)
 
-        // Por ahora, solo contiene la navegacion entre pestañas
+        mostrarGrupos(ContactManager.showGroups())
+
+        etBuscarGrupos.doAfterTextChanged { texto ->
+            mostrarGrupos(ContactManager.buscarGrupo(texto.toString()))
+        }
+
+        fabCrearGrupo.setOnClickListener {
+            setContentView(R.layout.dialog_crear_grupo)
+            CrearGrupo()
+        }
 
         tvTodos.setOnClickListener {
             setContentView(R.layout.activity_contactos)
@@ -414,5 +426,259 @@ class MainActivity : AppCompatActivity() {
             texto.text = "Agregar a favoritos"
         }
     }
-}
 
+    // Dibuja las tarjetas de grupo dinámicamente (reemplaza la tarjeta de ejemplo del XML)
+    private fun mostrarGrupos(lista: List<com.example.avance_app.data.Group>) {
+        val container = findViewById<LinearLayout>(R.id.containerGrupos)
+        container.removeAllViews()
+
+        for (grupo in lista) {
+            val card = com.google.android.material.card.MaterialCardView(this)
+            val paramsCard = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            paramsCard.topMargin = (16 * resources.displayMetrics.density).toInt()
+            card.layoutParams = paramsCard
+            card.radius = 14 * resources.displayMetrics.density
+            card.cardElevation = 2 * resources.displayMetrics.density
+            card.isClickable = true
+            card.isFocusable = true
+
+            val fila = LinearLayout(this)
+            fila.orientation = LinearLayout.HORIZONTAL
+            fila.gravity = android.view.Gravity.CENTER_VERTICAL
+            val padding = (14 * resources.displayMetrics.density).toInt()
+            fila.setPadding(padding, padding, padding, padding)
+
+            val icono = ImageView(this)
+            val tamanoIcono = (40 * resources.displayMetrics.density).toInt()
+            icono.layoutParams = LinearLayout.LayoutParams(tamanoIcono, tamanoIcono)
+            icono.setBackgroundResource(R.drawable.bg_group_icon)
+            icono.setImageResource(R.drawable.ic_group)
+            icono.setPadding(padding / 2, padding / 2, padding / 2, padding / 2)
+            icono.setColorFilter(resources.getColor(R.color.purple_primary, theme))
+
+            val columna = LinearLayout(this)
+            columna.orientation = LinearLayout.VERTICAL
+            val paramsColumna = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+            paramsColumna.marginStart = (12 * resources.displayMetrics.density).toInt()
+            columna.layoutParams = paramsColumna
+
+            val nombre = TextView(this)
+            nombre.text = grupo.name
+            nombre.textSize = 15f
+            nombre.setTypeface(null, android.graphics.Typeface.BOLD)
+            nombre.setTextColor(resources.getColor(R.color.text_primary, theme))
+
+            val miembrosTv = TextView(this)
+            val total = grupo.memberIds.size
+            miembrosTv.text = if (total == 1) "1 miembro" else "$total miembros"
+            miembrosTv.textSize = 13f
+            miembrosTv.setTextColor(resources.getColor(R.color.text_secondary, theme))
+
+            columna.addView(nombre)
+            columna.addView(miembrosTv)
+            fila.addView(icono)
+            fila.addView(columna)
+            card.addView(fila)
+
+            // Acceder al grupo (punto 2 del pendiente)
+            card.setOnClickListener {
+                setContentView(R.layout.activity_detalle_grupo)
+                VistaDetalleGrupo(grupo)
+            }
+
+            container.addView(card)
+        }
+    }
+
+    // Pantalla de crear grupo: nombre + checklist de contactos (punto 1 y 3 del pendiente)
+    private fun CrearGrupo() {
+        val etNombreGrupo = findViewById<EditText>(R.id.etNombreGrupo)
+        val containerCheck = findViewById<LinearLayout>(R.id.containerContactosCheck)
+        val btnGuardarGrupo = findViewById<Button>(R.id.btnGuardarGrupo)
+        val btnCancelarGrupo = findViewById<Button>(R.id.btnCancelarGrupo)
+
+        containerCheck.removeAllViews()
+        val checks = mutableMapOf<Int, android.widget.CheckBox>()
+
+        for (contact in ContactManager.showContacts()) {
+            val check = android.widget.CheckBox(this)
+            check.text = "${contact.name} · ${contact.number}"
+            check.textSize = 14f
+            check.setTextColor(resources.getColor(R.color.text_primary, theme))
+            checks[contact.id] = check
+            containerCheck.addView(check)
+        }
+
+        btnGuardarGrupo.setOnClickListener {
+            val nombre = etNombreGrupo.text.toString()
+            try {
+                if (nombre.isEmpty()) {
+                    throw IllegalArgumentException("El nombre del grupo no puede estar vacío")
+                }
+                val seleccionados = checks.filter { it.value.isChecked }.keys.toList()
+                ContactManager.crearGrupo(nombre, seleccionados)
+
+                Toast.makeText(this, "¡Grupo creado exitosamente!", Toast.LENGTH_SHORT).show()
+                setContentView(R.layout.activity_grupos)
+                VistaGrupos()
+            } catch (e: IllegalArgumentException) {
+                Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btnCancelarGrupo.setOnClickListener {
+            setContentView(R.layout.activity_grupos)
+            VistaGrupos()
+        }
+    }
+
+    // Detalle del grupo con miembros reales (punto 2 y 3 del pendiente)
+    private fun VistaDetalleGrupo(grupo: com.example.avance_app.data.Group) {
+        val btnAtras = findViewById<android.widget.ImageButton>(R.id.btnAtras)
+        val tvNombreGrupo = findViewById<TextView>(R.id.tvNombreGrupo)
+        val tvMiembrosActivos = findViewById<TextView>(R.id.tvMiembrosActivos)
+        val btnLlamadaGrupal = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnLlamadaGrupal)
+        val btnMensajeGrupal = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnMensajeGrupal)
+        val containerMiembros = findViewById<LinearLayout>(R.id.containerMiembros)
+
+        val miembros = ContactManager.obtenerMiembrosDeGrupo(grupo.id)
+        tvNombreGrupo.text = grupo.name
+        tvMiembrosActivos.text = if (miembros.size == 1) "1 miembro" else "${miembros.size} miembros"
+
+        containerMiembros.removeAllViews()
+        for (contact in miembros) {
+            val fila = LinearLayout(this)
+            fila.orientation = LinearLayout.HORIZONTAL
+            fila.gravity = android.view.Gravity.CENTER_VERTICAL
+            val paddingV = (10 * resources.displayMetrics.density).toInt()
+            fila.setPadding(0, paddingV, 0, paddingV)
+
+            val avatar = TextView(this)
+            avatar.text = contact.name.take(2).uppercase()
+            avatar.textSize = 13f
+            avatar.setTypeface(null, android.graphics.Typeface.BOLD)
+            avatar.gravity = android.view.Gravity.CENTER
+            avatar.setBackgroundResource(R.drawable.bg_avatar_circle)
+            avatar.backgroundTintList = resources.getColorStateList(R.color.avatar_peach_bg, theme)
+            avatar.setTextColor(resources.getColor(R.color.avatar_peach_text, theme))
+            val tamano = (40 * resources.displayMetrics.density).toInt()
+            avatar.layoutParams = LinearLayout.LayoutParams(tamano, tamano)
+
+            val columna = LinearLayout(this)
+            columna.orientation = LinearLayout.VERTICAL
+            val paramsColumna = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+            paramsColumna.marginStart = (12 * resources.displayMetrics.density).toInt()
+            columna.layoutParams = paramsColumna
+
+            val nombre = TextView(this)
+            nombre.text = contact.name
+            nombre.textSize = 14f
+            nombre.setTypeface(null, android.graphics.Typeface.BOLD)
+            nombre.setTextColor(resources.getColor(R.color.text_primary, theme))
+
+            val telefono = TextView(this)
+            telefono.text = contact.number
+            telefono.textSize = 12f
+            telefono.setTextColor(resources.getColor(R.color.text_secondary, theme))
+
+            columna.addView(nombre)
+            columna.addView(telefono)
+
+            val btnLlamar = android.widget.ImageButton(this)
+            val tamanoBtn = (34 * resources.displayMetrics.density).toInt()
+            btnLlamar.layoutParams = LinearLayout.LayoutParams(tamanoBtn, tamanoBtn)
+            btnLlamar.setImageResource(android.R.drawable.ic_menu_call)
+            btnLlamar.setBackgroundResource(android.R.color.transparent)
+            btnLlamar.setOnClickListener {
+                Toast.makeText(this, "Llamando a ${contact.name}...", Toast.LENGTH_SHORT).show()
+            }
+
+            fila.addView(avatar)
+            fila.addView(columna)
+            fila.addView(btnLlamar)
+            containerMiembros.addView(fila)
+        }
+
+        // Abre la llamada grupal (punto 4 del pendiente)
+        btnLlamadaGrupal.setOnClickListener {
+            setContentView(R.layout.activity_llamada_grupal)
+            VistaLlamadaGrupal(grupo)
+        }
+
+        // La dejamos pendiente para el proyecto final, como comentó tu compañera
+        btnMensajeGrupal.setOnClickListener {
+            Toast.makeText(this, "Mensaje grupal: próximamente", Toast.LENGTH_SHORT).show()
+        }
+
+        btnAtras.setOnClickListener {
+            setContentView(R.layout.activity_grupos)
+            VistaGrupos()
+        }
+    }
+
+    // Pantalla de llamada grupal con los miembros reales (punto 4 del pendiente)
+    private fun VistaLlamadaGrupal(grupo: com.example.avance_app.data.Group) {
+        val btnAtras = findViewById<android.widget.ImageButton>(R.id.btnAtras)
+        val btnCerrar = findViewById<android.widget.ImageButton>(R.id.btnCerrar)
+        val tvDestinatario = findViewById<TextView>(R.id.tvDestinatario)
+        val containerParticipantes = findViewById<LinearLayout>(R.id.containerParticipantes)
+        val btnCancelarLlamada = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnCancelarLlamada)
+        val btnIniciarLlamada = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnIniciarLlamada)
+
+        tvDestinatario.text = grupo.name
+
+        val miembros = ContactManager.obtenerMiembrosDeGrupo(grupo.id)
+        containerParticipantes.removeAllViews()
+
+        for (contact in miembros) {
+            val columna = LinearLayout(this)
+            columna.orientation = LinearLayout.VERTICAL
+            columna.gravity = android.view.Gravity.CENTER
+            val paramsColumna = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            paramsColumna.marginEnd = (16 * resources.displayMetrics.density).toInt()
+            columna.layoutParams = paramsColumna
+
+            val avatar = TextView(this)
+            avatar.text = contact.name.take(2).uppercase()
+            avatar.gravity = android.view.Gravity.CENTER
+            avatar.setTypeface(null, android.graphics.Typeface.BOLD)
+            avatar.setBackgroundResource(R.drawable.bg_avatar_circle)
+            avatar.backgroundTintList = resources.getColorStateList(R.color.avatar_peach_bg, theme)
+            avatar.setTextColor(resources.getColor(R.color.avatar_peach_text, theme))
+            val tamano = (56 * resources.displayMetrics.density).toInt()
+            avatar.layoutParams = LinearLayout.LayoutParams(tamano, tamano)
+
+            val nombre = TextView(this)
+            nombre.text = contact.name.split(" ").first()
+            nombre.textSize = 11f
+            nombre.gravity = android.view.Gravity.CENTER
+            nombre.setTextColor(resources.getColor(R.color.text_primary, theme))
+
+            columna.addView(avatar)
+            columna.addView(nombre)
+            containerParticipantes.addView(columna)
+        }
+
+        btnIniciarLlamada.setOnClickListener {
+            Toast.makeText(this, "Iniciando llamada grupal con ${grupo.name}...", Toast.LENGTH_SHORT).show()
+        }
+        btnCancelarLlamada.setOnClickListener {
+            setContentView(R.layout.activity_detalle_grupo)
+            VistaDetalleGrupo(grupo)
+        }
+        btnAtras.setOnClickListener {
+            setContentView(R.layout.activity_detalle_grupo)
+            VistaDetalleGrupo(grupo)
+        }
+        btnCerrar.setOnClickListener {
+            setContentView(R.layout.activity_contactos)
+            VistaTodos()
+        }
+    }
+}

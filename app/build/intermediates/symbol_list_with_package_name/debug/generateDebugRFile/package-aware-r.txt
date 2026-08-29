@@ -39,10 +39,12 @@ id btnAgregarContacto
 id btnAtras
 id btnBuscarGrupo
 id btnCancelar
+id btnCancelarGrupo
 id btnCancelarLlamada
 id btnCerrar
 id btnEditarContacto
 id btnGuardar
+id btnGuardarGrupo
 id btnIniciarLlamada
 id btnLlamadaGrupal
 id btnLlamadaVoz
@@ -53,6 +55,7 @@ id btnMensajeMiembro
 id btnVideollamada
 id btnVolverAContacto
 id cardGrupoEjemplo
+id containerContactosCheck
 id containerGrupos
 id containerMiembros
 id containerParticipantes
@@ -60,6 +63,7 @@ id etBuscarContacto
 id etBuscarGrupos
 id etEmail
 id etNombre
+id etNombreGrupo
 id etTelefono
 id fabCrearGrupo
 id filaFavoritoDC
@@ -88,6 +92,7 @@ layout activity_favoritos
 layout activity_grupos
 layout activity_llamada_grupal
 layout dialog_agregar_contacto
+layout dialog_crear_grupo
 layout dialog_editar_contacto
 mipmap ic_launcher
 mipmap ic_launcher_round
